@@ -3,14 +3,21 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchCharacters } from "../../redux/charactersSlice";
 
 const Home = () => {
-  const data = useSelector((state) => state.characters);
+  const characters = useSelector((state) => state.characters.items);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchCharacters());
   }, [dispatch]);
 
-  return <div>Home</div>;
+  return (
+    <div>
+      <h1>Characters</h1>
+      {characters.map((character) => (
+        <div key={character.id}>{character.name}</div>
+      ))}
+    </div>
+  );
 };
 
 export default Home;
