@@ -7,6 +7,7 @@ import "./styles.css";
 const Home = () => {
   const coffees = useSelector((state) => state.coffees.items);
   const isLoading = useSelector((state) => state.coffees.isLoading);
+  const error = useSelector((state) => state.coffees.error);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -15,6 +16,10 @@ const Home = () => {
 
   if (isLoading) {
     return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
   }
   return (
     <div>
