@@ -26,7 +26,7 @@ export const coffeesSlice = createSlice({
     },
     [fetchCoffees.rejected]: (state, action) => {
       state.isLoading = false;
-      action.error = state.error.massage;
+      state.error = action.error.massage;
     },
   },
 });
