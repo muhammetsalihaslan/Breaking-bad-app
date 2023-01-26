@@ -26,7 +26,6 @@ const Home = () => {
   }
   return (
     <div>
-      <h1>Coffes's</h1>
       <Masonry
         breakpointCols={3}
         className="my-masonry-grid"
