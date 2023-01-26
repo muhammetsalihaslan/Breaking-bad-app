@@ -4,15 +4,13 @@ import axios from "axios";
 export const fetchCharacters = createAsyncThunk(
   "characters/getCharacters",
   async () => {
-    const res = await axios(
-      `${process.env.REACT_APP_API_BASE_ENDPOINT}/characters`
-    );
+    const res = await axios(`${process.env.REACT_APP_API_BASE_ENDPOINT}/hot`);
     return res.data;
   }
 );
 
-export const charactersSlice = createSlice({
-  name: "characters",
+export const coffeesSlice = createSlice({
+  name: "coffees",
   initialState: {
     items: [],
   },
@@ -24,4 +22,4 @@ export const charactersSlice = createSlice({
   },
 });
 
-export default charactersSlice.reducer;
+export default coffeesSlice.reducer;

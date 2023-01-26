@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchCharacters } from "../../redux/charactersSlice";
+import { fetchCharacters } from "../../redux/coffeesSlice";
 
 const Home = () => {
-  const characters = useSelector((state) => state.characters.items);
+  const coffees = useSelector((state) => state.coffees.items);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -12,9 +12,9 @@ const Home = () => {
 
   return (
     <div>
-      <h1>Characters</h1>
-      {characters.map((character) => (
-        <div key={character.id}>{character.name}</div>
+      <h1>Coffe</h1>
+      {coffees.map((coffee) => (
+        <div key={coffee.id}>{coffee.title}</div>
       ))}
     </div>
   );
