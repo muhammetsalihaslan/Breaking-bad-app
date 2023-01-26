@@ -34,7 +34,7 @@ const Home = () => {
       >
         {coffees.map((coffee) => (
           <div key={coffee.id}>
-            <Link to="/detail/espresso">
+            <Link to={`/detail/${coffee.id}`}>
               <img src={coffee.image} alt={coffee.title} className="coffee" />
               <h3>{coffee.title}</h3>
             </Link>
