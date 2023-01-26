@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const fetchCharacters = createAsyncThunk(
+export const fetchCoffees = createAsyncThunk(
   "characters/getCharacters",
   async () => {
     const res = await axios(`${process.env.REACT_APP_API_BASE_ENDPOINT}/hot`);
@@ -13,11 +13,20 @@ export const coffeesSlice = createSlice({
   name: "coffees",
   initialState: {
     items: [],
+    isLoading: false,
   },
   reducers: {},
   extraReducers: {
-    [fetchCharacters.fulfilled]: (state, action) => {
+    [fetchCoffees.pending]: (state, action) => {
+      state.isLoading = true;
+    },
+    [fetchCoffees.fulfilled]: (state, action) => {
       state.items = action.payload;
+      state.isLoading = false;
+    },
+    [fetchCoffees.rejected]: (state, action) => {
+      state.isLoading = false;
+      state.error = state.error.massage;
     },
   },
 });
