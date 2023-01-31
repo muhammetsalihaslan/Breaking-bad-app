@@ -31,7 +31,7 @@ export const icedCoffeesSlice = createSlice({
   },
 });
 
-export const icedCoffees = (state) => state.icedCoffees.items;
+export const icedSelector = (state) => state.icedCoffees.items;
 
 export const statusSelector = (state) => state.icedCoffees.status;
 

@@ -1,13 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const fetchCoffees = createAsyncThunk(
-  "characters/getCharacters",
-  async () => {
-    const res = await axios(`${process.env.REACT_APP_API_BASE_ENDPOINT}/hot`);
-    return res.data;
-  }
-);
+export const fetchCoffees = createAsyncThunk("coffees/getCoffees", async () => {
+  const res = await axios(`${process.env.REACT_APP_API_BASE_ENDPOINT}/hot`);
+  return res.data;
+});
 
 export const coffeesSlice = createSlice({
   name: "coffees",
